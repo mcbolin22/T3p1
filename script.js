@@ -187,3 +187,64 @@ const logTheTeamAlt = (targetSize = 4) => {
 
 logTheTeamAlt();
 logTheTeamAlt(2);
+
+
+// Don't produce smelly code as seen below
+function someSmellyFunction() {
+    let smellStrength = 10;
+
+    let smellTotalStrength = (baseStrength, multiplier) => {
+        return baseStrength * multiplier;
+    }
+
+    return smellTotalStrength(smellStrength, 5);
+    // equivalent to: return 10 * 5;
+}
+
+// console.log(smellStrength);
+// console.log(someSmellyFunction());
+
+let person = {
+    name: "Colin",
+    greeting: (message) => {
+        console.log("Hello! I have a message for you: ")
+        console.log(message);
+    },
+    farewell: (message) => {
+        console.log("Goodbye! I have a message for you: ")
+        console.log(message);
+    },
+    dance: (dance) => {
+        console.log("I'm gonna dance!")
+        //this.dance() is for JS classes not objects
+        // recursive function call
+        // it will crash your browser!
+        person.dance()
+    },    
+    listFavouritePokemon: (pokemonList, formatFunction) => {
+        console.log("Hi! Here is a list of my favourite pokemon: ");
+        formatFunction(pokemonList);
+    }
+}
+
+
+
+function improvedTeamLogging(pokemonTeam){
+    let sortedReversedTeam = pokemonTeam.sort().reverse();
+
+    sortedReversedTeam.forEach(pokemonName => {
+        console.log(pokemonName);
+    })
+}
+
+person.listFavouritePokemon(["pikachu", "charmander", "bulbasaur", "squirtle"], 
+improvedTeamLogging
+);
+
+
+
+// person.greeting("message");
+
+// person.farewell("message");
+
+// person.dance();
