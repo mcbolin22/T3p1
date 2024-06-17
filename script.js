@@ -1,3 +1,5 @@
+function exampleStuff(){
+
 let exampleEmptyVariable = null;
 let exampleEmptyVarviable = undefined;
 
@@ -87,7 +89,12 @@ let colin = {
 colin.hobbies[1].favouriteArea[0] = "Blue Mountains";
 
 console.log(colin);
-
+ /**
+  * Description Placeholder
+  * @date 2021-06-23
+  * @author Me
+  * 
+  */
 
 let weather = "sunny";
 
@@ -110,3 +117,73 @@ if (weather == "rainy") {
 else if (weather == "sunny") {
 
 }
+}
+
+let pokemonTeam = [
+    "pikachu",
+    "charmander",
+    "bulbasaur",
+    "squirtle",
+];
+
+function logTheTeam() {
+    sortedTeam = pokemonTeam.sort();
+
+    sortedTeam.forEach((pokemon, arrayIndex) => {
+        console.log(pokemon + " is in position " + arrayIndex);
+    });
+    
+    // forOF loop
+    // console.log(pokemonTeam.entries());
+    for (const [index, pokemon] of sortedTeam.entries()) {
+        console.log(`${pokemon} is in position ${index}`);
+        
+    }
+
+    let [firstPokemon, ...otherPokemon] = sortedTeam;
+
+    console.log(firstPokemon);
+    console.log(otherPokemon);
+
+
+    // while(true){
+    //     console.log("I am in an infinite loop!");
+    // }
+
+    // while(sortedTeam.length) {
+    //     console.log(sortedTeam.pop());
+    // }
+
+    do{
+        console.log(sortedTeam.pop());
+    } while(sortedTeam.length);
+
+    sortedTeam.push("pidgey");
+
+    for (let index = 0; index < sortedTeam.length; index++) {
+        console.log("Pokemon at index " + index + " is " + sortedTeam[index])  
+    }
+
+    // for (const pokemon of sortedTeam) {
+    //     console.log(pokemon);
+        
+    // }
+}
+
+// logTheTeam();
+
+const logTheTeamAlt = (targetSize = 4) => {
+    // double = checks value
+    // type coercion happens where possible automatically
+    if (pokemonTeam.length == targetSize) {
+        console.log("There are only " + targetSize + " pokemon in the team!");
+    }
+
+    // triple = checks value and type
+    if (pokemonTeam.length === targetSize) {
+        console.log("There are only " + targetSize + " pokemon in the team! This is from the strict equals comparison");
+    }
+}
+
+logTheTeamAlt();
+logTheTeamAlt(2);
